@@ -7,10 +7,21 @@ Most companies send their staff to work remotely or represent the company on bus
 ### Solution
 The refund by location smart contract is aimed to be used when one party, for example an employer, agrees to pay another party, for example an employee, for being present in a certain geographic area for a certain duration. The employee's phone sends their GPS location to a smart contract at a certain interval. Based on the pre-agreed contract codified in an Ethereum smart contract, a cryptocurrency payment is executed when all the agreed conditions are met.
 If, at any point, the GPS sensor indicates that the employee is outside the range of the agreed GPS area, the contract state will be updated to indicate that it is out of compliance.
-## Key
-### Requirements - https://github.com/Stella-Mutacho/Web3-Refund-by-Location-Smart-Contract/blob/main/requirements.txt
-### Smart contract code - https://github.com/Stella-Mutacho/Web3-Refund-by-Location-Smart-Contract/tree/main/contract
-### Tests -
-### Employer webapp - https://github.com/Stella-Mutacho/Web3-Refund-by-Location-Smart-Contract/tree/main/webapp
-### Employee mobileapp- https://github.com/Stella-Mutacho/Web3-Refund-by-Location-Smart-Contract/tree/main/employee
+# Installations
+Remix IDE -https://remix.ethereum.org/
+
+Node.JS - https://nodejs.org
+
+### pip install eth-brownie
+# Key
+Requirements - https://github.com/Stella-Mutacho/Web3-Refund-by-Location-Smart-Contract/blob/main/requirements.txt
+
+Smart contract code - https://github.com/Stella-Mutacho/Web3-Refund-by-Location-Smart-Contract/tree/main/contract
+
+Tests -
+
+Employer webapp - https://github.com/Stella-Mutacho/Web3-Refund-by-Location-Smart-Contract/tree/main/webapp
+
+Employee mobileapp- https://github.com/Stella-Mutacho/Web3-Refund-by-Location-Smart-Contract/tree/main/employee
+React mix - https://github.com/brownie-mix
 
