@@ -12,13 +12,14 @@ Remix IDE -https://remix.ethereum.org/
 
 Node.JS - https://nodejs.org
 
-### pip install eth-brownie
+pip install eth-brownie
+
 # Key
 Requirements - https://github.com/Stella-Mutacho/Web3-Refund-by-Location-Smart-Contract/blob/main/requirements.txt
 
 Smart contract code - https://github.com/Stella-Mutacho/Web3-Refund-by-Location-Smart-Contract/tree/main/contract
 
-Tests -
+Tests - https://github.com/Stella-Mutacho/Web3-Refund-by-Location-Smart-Contract/tree/main/tests
 
 Employer webapp - https://github.com/Stella-Mutacho/Web3-Refund-by-Location-Smart-Contract/tree/main/webapp
 
