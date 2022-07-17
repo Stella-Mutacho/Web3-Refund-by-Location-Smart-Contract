@@ -5,7 +5,7 @@ contract Refund {
     address owner;          //the creator of the contract
     int256 private constant RESOLUTION = 1000000000000000;  //to be used as the denominator when calculating the coordinates
     uint256 private constant RADIUS =100;         //the maximum possible allowed radius around the exact location where the employee is expected to be
-    address[] employee_list;      //A list of employee. Employees are identified by their public key addresses
+    address[] employee_list;      //A list of employees, Employees are identified by their public key addresses
 
     mapping(address => Employee_Info) public contractInfo;
 
@@ -20,9 +20,9 @@ contract Refund {
         bool isCompliant;        //true if the employee is compliant with the contract
         uint count;             //keeps track of number of times the employee has been checked to comply with the contract
     }
-    /*
-    This Function is the constructor which registers the creator of the contract.
-    */
+/*
+This Function is the constructor which registers the creator of the contract.
+*/
     constructor() {
         owner = msg.sender;
     }
@@ -72,13 +72,24 @@ contract Refund {
             z = (x / z + z) / 2;
         }
     } 
-
+/**
+ *Gets the radius of the area the employee is allowed to be from the expected location
+ *@param lat latittude from the gps location
+ *@param lon lomgitude from the gps location
+ @param _employeeAddress public address of the employee from memory
+ *@return radius The allowed distance from the expected location
+ */
     function getDistance(uint256 lat, uint256 lon, address _employeeAddress) private view returns(uint256) {
         uint256 x = lat - contractInfo[_employeeAddress].expected_location.lat;
             uint256 y = lon - contractInfo[_employeeAddress].expected_location.long;
             uint256 radius = sqrt(x**2 + y**2);
             return radius;
     }
+/**
+ *Function to update the isCompliant state depending on the user location
+ *@param lat latittude from the gps location
+ *@param lon lomgitude from the gps location
+ */
     function checkDistance(uint256 lat, uint256 lon) public {
         uint256 new_radius = getDistance(lat, lon, msg.sender);
         if(new_radius < RADIUS){
@@ -87,11 +98,15 @@ contract Refund {
             contractInfo[msg.sender].isCompliant = false;
         }
     }
+/**
+ *Function to reimburse the employee a certain budget
+ *@param _to Public address of the employee
+ */
     function reimburse(address payable _to) public {
             require(checkEmployeeExistance(_to));
             require(contractInfo[_to].isCompliant == true);
             bool sent = _to.send(contractInfo[_to].budget);
-            require(sent, "Failed reimburse the employee!!");
+            require(sent, "Failed to reimburse the employee!!");
             contractInfo[_to].isCompliant=false;
         }
     
